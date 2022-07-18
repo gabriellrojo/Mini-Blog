@@ -1,0 +1,35 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px -2px 10px rgb(150, 150, 150);
+    padding: .5em 2em
+
+}
+
+.logo {
+    margin-left: 1.2em;
+}
+
+.logo span{
+    font-weight: 900;
+    text-transform: uppercase;
+    
+}
+
+.listLinks{
+    display: flex;
+    list-style: none;
+    margin-right: 1em;
+    
+}
+
+.listLinks a{
+    padding: .4em .6em;
+    
+}
+
+.active {
+    background-color: black;
+    color: white
+}
