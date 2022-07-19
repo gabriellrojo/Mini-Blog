@@ -28,8 +28,9 @@ export const useAuthentication = () => {
                 {displayName: data.displayName})
             
             return user
-        } catch (error){
-            let textMsgError
+        } 
+        catch (error){
+            let textMsgError = ""
             if(error.message.includes("Password")){
                 textMsgError = "A senha precisa ter no mínimo 6 caracteres"
             }else if(error.message.includes("email-already")){
@@ -40,6 +41,31 @@ export const useAuthentication = () => {
             setError(textMsgError)
        }
     }
+
+    //login
+
+    const login = async (data) => {
+
+        try{
+            await signInWithEmailAndPassword(
+                auth,
+                data.email,
+                data.password
+            )
+
+        } 
+        catch (error) {
+            let textMsgError = ""
+            if(error.message.includes("user-not-found")){
+                textMsgError = "Usuário não encontrado"
+            } else if(error.message.includes("worng-password")){
+                textMsgError = "Senha incorreta"
+            }else{
+                textMsgError = "Ocorreu um erro. Tente mais tarde"
+            }
+            setError(textMsgError)
+        }
+    }    
     
-    return {auth, createUser, error }
+    return {auth, createUser, login, error }
 }
