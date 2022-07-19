@@ -13,6 +13,7 @@ import { onAuthStateChanged } from 'firebase/auth'
 function App() {
   const [user, setUser] = useState();
   const { auth } = useAuthentication();
+  console.log(user)
   
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -23,7 +24,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <AuthContextProvider value={user}>
+        <AuthContextProvider value={{ user }}>
           <Navbar/>
             <div className='container'>
               <Routes>
