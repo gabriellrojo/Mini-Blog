@@ -1,12 +1,15 @@
 import styles from "./Login.module.css"
 import { useEffect, useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
   const [email, setEmail] = useState()
   const [error, setError] = useState()
   const [password, setPassword] = useState()
-  const { login, error: authError } = useAuthentication()
+  const { login, error: authError, loading } = useAuthentication()
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -18,6 +21,8 @@ const Login = () => {
     }
 
     await login(user)
+
+    navigate("/")
   
   }
 
@@ -40,7 +45,8 @@ const Login = () => {
           <span>Senha:</span>
           <input onChange={(e) => setPassword(e.target.value)}value={password} type="password" required placeholder="Digite a sua senha" />
         </label>
-        <button className="btn">Entrar</button>
+        {loading && <button className="btn" disabled>Aguarde...</button>}
+        {!loading && <button className="btn">Entrar</button>}
       </form>
     </div>
   )

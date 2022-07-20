@@ -8,7 +8,7 @@ const Register = () => {
     const [password, setPassword] = useState()
     const [confirmPassword, setConfirmPassword] = useState()
     const [error, setError] = useState()
-    const { createUser, error: authError } = useAuthentication()
+    const { createUser, error: authError, loading } = useAuthentication()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -55,8 +55,9 @@ const Register = () => {
                 <span>Confirme a sua senha:</span>
                 <input name='confirmPassword' value={confirmPassword} type="password" required placeholder='Confirme a sua senha' onChange={e => setConfirmPassword(e.target.value)}/>
             </label>
-            <button className="btn">Cadastrar</button>
-            {error&& <p className="error">{error}</p> }
+            {loading && <button className="btn" disabled>Aguarde...</button>}
+            {!loading && <button className="btn">Cadastrar</button>}
+            {error && <p className="error">{error}</p> }
         </form>
     </div>
   )

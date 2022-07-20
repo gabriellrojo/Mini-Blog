@@ -3,7 +3,10 @@ import Footer from './components/Footer'
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/dashboard/Dashboard'
+import CriarPost from './pages/criarPost/CriarPost'
+import About from './pages/about/About'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthContextProvider } from './context/AuthContext';
 import './App.css';
 import { useAuthentication } from './hooks/useAuthentication';
@@ -13,7 +16,6 @@ import { onAuthStateChanged } from 'firebase/auth'
 function App() {
   const [user, setUser] = useState();
   const { auth } = useAuthentication();
-  console.log(user)
   
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -30,7 +32,10 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/login" element={<Login/>}/>
-                <Route path="/register" element={<Register/>}/>
+                <Route path="/register" element={!user ? <Register/> : <Navigate to="/"/>}/>
+                <Route path="/dashboard" element={user ? <Dashboard/> : <Navigate to="/register"/>}/>
+                <Route path="/post/create" element={user? <CriarPost/> : <Navigate to="/register"/>}/>
+                <Route path="/about" element={<About/>}/>
               </Routes>
             </div>
           <Footer/>

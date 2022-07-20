@@ -11,7 +11,7 @@ import { useState } from 'react'
 
 export const useAuthentication = () => {
     const [error, setError] = useState()
-
+    const [loading, setLoading] = useState()
     const auth = getAuth();
     
     //register
@@ -19,6 +19,7 @@ export const useAuthentication = () => {
         setError("")
         
         try{
+            setLoading(true)
             const { user } = await createUserWithEmailAndPassword(
                 auth,
                 data.email,
@@ -26,10 +27,13 @@ export const useAuthentication = () => {
             )
             await updateProfile(user, 
                 {displayName: data.displayName})
-            
-            return user
-        } 
+             
+            setLoading(false)
+            return user 
+        }
+        
         catch (error){
+            setLoading(true)
             let textMsgError = ""
             if(error.message.includes("Password")){
                 textMsgError = "A senha precisa ter no mínimo 6 caracteres"
@@ -39,6 +43,7 @@ export const useAuthentication = () => {
                 textMsgError = "Ocorreu um problema. Tente mais tarde"
             }
             setError(textMsgError)
+            setLoading(false)
        }
     }
 
@@ -47,14 +52,16 @@ export const useAuthentication = () => {
     const login = async (data) => {
 
         try{
+            setLoading(true)
             await signInWithEmailAndPassword(
                 auth,
                 data.email,
                 data.password
             )
-
+            setLoading(false)
         } 
         catch (error) {
+            setLoading(true)
             let textMsgError = ""
             if(error.message.includes("user-not-found")){
                 textMsgError = "Usuário não encontrado"
@@ -64,8 +71,15 @@ export const useAuthentication = () => {
                 textMsgError = "Ocorreu um erro. Tente mais tarde"
             }
             setError(textMsgError)
+            setLoading(false)
         }
-    }    
+    }
     
-    return {auth, createUser, login, error }
+    //logout
+
+    const logout = () => {
+        signOut(auth)
+    }
+    
+    return {auth, createUser, login, error, logout, loading }
 }
