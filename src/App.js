@@ -4,6 +4,7 @@ import Home from './pages/home/Home'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
 import Dashboard from './pages/dashboard/Dashboard'
+import Post from './pages/post/Post'
 import CriarPost from './pages/criarPost/CriarPost'
 import About from './pages/about/About'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
@@ -34,7 +35,8 @@ function App() {
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={!user ? <Register/> : <Navigate to="/"/>}/>
                 <Route path="/dashboard" element={user ? <Dashboard/> : <Navigate to="/register"/>}/>
-                <Route path="/post/create" element={user? <CriarPost/> : <Navigate to="/register"/>}/>
+                <Route to="/posts/:id" element={<Post/>}/>
+                <Route path="/posts/create" element={user? <CriarPost/> : <Navigate to="/register"/>}/>
                 <Route path="/about" element={<About/>}/>
               </Routes>
             </div>

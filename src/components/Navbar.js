@@ -22,7 +22,7 @@ const Navbar = () => {
                 {!user && <NavLink to="/login" className={({isActive}) => ((isActive) ? (styles.active) : (""))}>Entrar</NavLink>}
             </li>
             <li>
-               {user && <NavLink to="/post/create" className={({isActive}) => ((isActive) ? (styles.active) : (""))}>Criar Post</NavLink>} 
+               {user && <NavLink to="/posts/create" className={({isActive}) => ((isActive) ? (styles.active) : (""))}>Criar Post</NavLink>} 
             </li>
             <li>
                 {user && <NavLink to="/dashboard" className={({isActive}) => ((isActive) ? (styles.active) : (""))}>Dashboard</NavLink>}

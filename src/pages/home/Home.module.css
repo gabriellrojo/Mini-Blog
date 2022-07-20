@@ -1,0 +1,35 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.posts img{
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.title{
+    font-size: 1.8em;
+}
+
+.author{
+    color: #AAA;
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+.posts p span{
+    color: black;
+    font-size: 1em
+}
+
+.tags {
+    display: flex
+}
+
+.tag{
+    color: #AAA;
+    margin-right: 0.5em;
+}
