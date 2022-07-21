@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container img{
+    max-width: 600px;
+}
+
+.container h1{
+    text-align: center;
+}
+
+.tags{
+    display: flex
+}
+
+.tag{
+    margin-right: 1em;
+    color: #AAA
+}

@@ -1,14 +1,27 @@
-import React from 'react'
 import { useFetchDocuments } from '../../hooks/useFetchDocuments'
 import styles from './Home.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 const Home = () => {
   const { documents } = useFetchDocuments
   ("post")
+  const [query, setQuery] = useState()
+  const navigate = useNavigate()
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    navigate(`/posts/search?q=${query}`)
+
+  }
   
   return (
     <div className={styles.container}>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <input value={query} onChange={e => setQuery(e.target.value)} type="text" required placeholder='Busque através da tag' />
+        <button className="btn">Pesquisar</button>
+      </form>
       <h1>Veja os nossos posts mais recentes</h1>
       {documents&& documents.map(document => (
         <div className={styles.posts}>
@@ -26,7 +39,7 @@ const Home = () => {
       {documents&& documents.length === 0 &&
       <div className={styles.no_post}>
         <p>Não foram encontrados posts</p>
-        <button className="btn">Criar primeiro Post</button>
+        <Link to="/posts/create" className="btn">Criar primeiro post</Link>
       </div>
       }
     </div>

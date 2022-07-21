@@ -27,7 +27,7 @@ const CriarPost = () => {
       return
     }
 
-    const arrayTags = tags.split(",")
+    const arrayTags = tags.split(", ")
     arrayTags.map(tag => (
       tag.toLowerCase().trim()
     ))

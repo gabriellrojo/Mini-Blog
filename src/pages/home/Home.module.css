@@ -5,6 +5,18 @@
     align-items: center;
 }
 
+.form{
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form input{
+    margin-right: 30px;
+    width: 100%;
+}
+
 .posts img{
     max-width: 600px;
     margin-top: 20px;
@@ -32,4 +44,12 @@
 .tag{
     color: #AAA;
     margin-right: 0.5em;
+}
+
+.no_post {
+    text-align: center;
+}
+
+.no_post p{
+    margin-bottom: 2em;
 }
