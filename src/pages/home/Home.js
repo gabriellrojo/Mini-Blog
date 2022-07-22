@@ -27,10 +27,10 @@ const Home = () => {
         <div className={styles.posts}>
           <img src={document.image} />
           <h3 className={styles.title}>{document.title}</h3>
-          <p className={styles.author}>    <span>por:</span> {document.createdBy}</p>  
+          <p className={styles.author}> <span>por:</span> {document.createdBy}</p>  
           <div className={styles.tags}>
             {document.tags.map(tag => (
-              <p className={styles.tag}>{tag}</p>
+              <p><span>#</span>{tag}</p>
             ))}  
           </div>
           <Link to={`/posts/${document.id}`} className="btn btn-outline">Ler Post</Link>      

@@ -15,7 +15,7 @@ const Post = () => {
         <p>{document.body}</p>
         <div className={styles.tags}>
           {document.tags.map(tag => (
-            <p className={styles.tag}>{tag}</p>
+            <p className={styles.tag}><span>#</span>{tag}</p>
           ))}
         </div>
       </div>

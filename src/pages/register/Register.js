@@ -10,7 +10,7 @@ const Register = () => {
     const [error, setError] = useState()
     const { createUser, error: authError, loading } = useAuthentication()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         setError("")
 
@@ -24,7 +24,7 @@ const Register = () => {
             setError("As senhas precisam ser iguais")
         }
 
-        createUser(user)
+        await createUser(user)
 
     }
 

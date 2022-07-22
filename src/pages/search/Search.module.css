@@ -1,0 +1,39 @@
+h3{
+    text-align: center;
+    color: #AAA;
+    margin-top: 50px;
+}
+
+h3 span{
+    color: black
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container img{
+    max-width: 600px;
+}
+
+.container p span{
+    color: #AAA;
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+.tags{
+    display: flex;
+}
+
+.tags p span{
+    color: black
+}
+
+.tags p{
+    margin-right: 1em;
+    color: #AAA
+}

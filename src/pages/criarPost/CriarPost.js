@@ -32,14 +32,16 @@ const CriarPost = () => {
       tag.toLowerCase().trim()
     ))
 
-      await postDocument ({
+    const post = { 
       title: title,
       image: image,
       body: body,
       tags: arrayTags,
       uid: user.uid,
       createdBy: user.displayName
-    })
+    }
+
+      await postDocument (post)
 
     navigate("/")
     

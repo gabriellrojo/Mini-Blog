@@ -9,7 +9,7 @@ import {
 } from "firebase/firestore"
 import { useEffect, useState } from "react"
 
-export const useFetchDocuments = (docCollection, search = null) => {
+export const useFetchDocuments = (docCollection, search, uid) => {
     const [documents, setDocuments] = useState()
     const [error, setError] = useState()
     
@@ -24,6 +24,11 @@ export const useFetchDocuments = (docCollection, search = null) => {
                     q = await query(collectionRef, where("tags","array-contains", search), orderBy("createAt", "desc"))
                 }
 
+                else if(uid){
+                    console.log("bla")
+                    q = await query(collectionRef, where("uid", "==", uid), orderBy("createAt", "desc")) 
+                }
+                
                 else{
                     q = await query(collectionRef, orderBy("createAt", "desc"))
                 }
@@ -42,7 +47,7 @@ export const useFetchDocuments = (docCollection, search = null) => {
             }
         }
         fetchData()
-    },[docCollection, search])
+    },[docCollection, search, uid])
     
     return {documents, error}
 }

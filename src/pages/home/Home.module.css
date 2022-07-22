@@ -17,19 +17,26 @@
     width: 100%;
 }
 
+.container h1{
+    margin-bottom: 8px;
+}
+
 .posts img{
     max-width: 600px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .title{
     font-size: 1.8em;
+    color: black;
+    text-align: start;
 }
 
 .author{
     color: #AAA;
     font-style: italic;
     font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
 .posts p span{
@@ -38,12 +45,14 @@
 }
 
 .tags {
-    display: flex
+    display: flex;
+    margin-bottom: 10px;
 }
 
-.tag{
+.tags p{
     color: #AAA;
     margin-right: 0.5em;
+    margin-bottom: 1.5em;
 }
 
 .no_post {

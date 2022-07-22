@@ -1,4 +1,4 @@
-import React from 'react'
+import styles from "./Search.module.css"
 import { useLocation } from 'react-router-dom'
 import { useFetchDocuments } from '../../hooks/useFetchDocuments'
 
@@ -12,17 +12,17 @@ const Search = () => {
     <div>
         <h3>Resultado da busca para a tag: <span>{busca}</span></h3>
         {documents && documents.map(document => (
-            <>
+            <div className={styles.container}>
                 <h1>{document.title}</h1>
                 <img src={document.image}/>
                 <p>por: <span>{document.createdBy}</span></p>
                 <p>{document.body}</p>
-                <div>
+                <div className={styles.tags}>
                     {document.tags.map(tag => (
-                        <p>{tag}</p>
+                        <p><span>#</span>{tag}</p>
                     ))}
                 </div>
-            </>
+            </div>
         ))}
     </div>
   )
