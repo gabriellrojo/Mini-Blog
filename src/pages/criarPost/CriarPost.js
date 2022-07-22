@@ -66,7 +66,7 @@ const CriarPost = () => {
         </label>
         <label>
           <span>Tags:</span>
-          <input name="tags" type="text" required placeholder="Digite as tags" onChange={e => setTags(e.target.value)}/>
+          <input name="tags" type="text" required placeholder='sem "#" e separadas por vírgula' onChange={e => setTags(e.target.value)}/>
         </label>
         <button className="btn">Criar</button>
         {error&& <p className="error">{error}</p>}

@@ -8,6 +8,8 @@ import Post from './pages/post/Post'
 import CriarPost from './pages/criarPost/CriarPost'
 import About from './pages/about/About'
 import Search from './pages/search/Search'
+import PostDashboard from './pages/post/PostDashboard';
+import PostDashboardEdit from './pages/post/PostDashboardEdit'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthContextProvider } from './context/AuthContext';
 import './App.css';
@@ -37,6 +39,8 @@ function App() {
                 <Route path="/register" element={!user ? <Register/> : <Navigate to="/"/>}/>
                 <Route path="/posts/search" element={<Search/>}/>
                 <Route path="/dashboard" element={user ? <Dashboard/> : <Navigate to="/register"/>}/>
+                <Route path="/dashboard/posts/:id" element={user ? <PostDashboard/> : <Navigate to="/register"/>}/>
+                <Route path="dashboard/posts/edit/:id" element={user? <PostDashboardEdit/> : <Navigate to="/register"/>}/>
                 <Route path="/posts/:id" element={<Post/>}/>
                 <Route path="/posts/create" element={user? <CriarPost/> : <Navigate to="/register"/>}/>
                 <Route path="/about" element={<About/>}/>

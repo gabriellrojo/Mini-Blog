@@ -1,34 +1,42 @@
-h3{
+.principal h1,
+h3,
+p{
     text-align: center;
+}
+
+.principal p{
     color: #AAA
 }
 
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 60vw;
+    margin: 0 auto;
+    border-bottom: 1px solid #AAA;
+}
+
 .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 60vw;
+    margin:0 auto;
+
+}
+
+.container_abaixo a{
+    margin-right: 10px;
+}
+
+.no_posts {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.container img{
-    max-width: 600px;
-}
-
-.container p span{
-    color: #AAA;
-    font-size: 1em;
-    font-style: italic;
-}
-
-.tags{
-    display: flex;
-}
-
-.tags p{
-    color: #AAA;
-    margin-right: 1em
-}
-
-.tags p span{
-    color: black
+.no_posts p{
+    margin-bottom: 2em;
 }

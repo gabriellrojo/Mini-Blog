@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <input value={query} onChange={e => setQuery(e.target.value)} type="text" required placeholder='Busque através da tag' />
+        <input value={query} onChange={e => setQuery(e.target.value)} type="text" required placeholder='Busque sem "#"' />
         <button className="btn">Pesquisar</button>
       </form>
       <h1>Veja os nossos posts mais recentes</h1>
