@@ -54,19 +54,19 @@ const CriarPost = () => {
       <form onSubmit={handleSubmit}>
         <label>
           <span>Título:</span>
-          <input name="title" type="text" required placeholder='Digite o título do post' onChange={e => setTitle(e.target.value)}/>
+          <input value={title} name="title" type="text" required placeholder='Digite o título do post' onChange={e => setTitle(e.target.value)}/>
         </label>
         <label>
           <span>Imagem:</span>
-          <input name="image" type="text" required placeholder='Insira um URL válido' onChange={e => setImage(e.target.value)}/>
+          <input value={image} name="image" type="text" required placeholder='Insira um URL válido' onChange={e => setImage(e.target.value)}/>
         </label>
         <label>
           <span>Destrição:</span>
-          <textarea name="body" placeholder="Digite a descrição da imagem" onChange={e => setBody(e.target.value)}></textarea>
+          <textarea value={body} name="body" placeholder="Digite a descrição da imagem" onChange={e => setBody(e.target.value)}></textarea>
         </label>
         <label>
           <span>Tags:</span>
-          <input name="tags" type="text" required placeholder='sem "#" e separadas por vírgula' onChange={e => setTags(e.target.value)}/>
+          <input value={tags} name="tags" type="text" required placeholder='sem "#" e separadas por vírgula' onChange={e => setTags(e.target.value)}/>
         </label>
         <button className="btn">Criar</button>
         {error&& <p className="error">{error}</p>}

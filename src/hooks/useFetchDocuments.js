@@ -25,7 +25,6 @@ export const useFetchDocuments = (docCollection, search, uid) => {
                 }
 
                 else if(uid){
-                    console.log("bla")
                     q = await query(collectionRef, where("uid", "==", uid), orderBy("createAt", "desc")) 
                 }
                 
