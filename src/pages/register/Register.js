@@ -22,9 +22,10 @@ const Register = () => {
 
         if(password !== confirmPassword){
             setError("As senhas precisam ser iguais")
+            
+        } else{
+            await createUser(user)
         }
-
-        await createUser(user)
 
     }
 
